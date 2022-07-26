@@ -1,0 +1,23 @@
+.test {
+    width: 70%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    background-color: grey;
+}
+
+.gifTestComp {
+    transform: scaleX(-1);
+}
+
+.axeSize {
+    height: 200px;
+}
+
+.swordSize {
+    height: 212px;
+}
+
+.lanceSize {
+    height: 238px;
+}
