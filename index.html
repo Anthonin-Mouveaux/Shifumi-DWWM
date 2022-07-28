@@ -1,42 +1,92 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="wclassth=device-wclassth, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="public\assets\css\style.css">
-    <link rel="manifest" href="public\assets\js\manifest.json">
     <title>Projet 3: Shifumi</title>
 </head>
+
 <body>
-    <div class="test">
-        <div class="box1">
-            <img src="public\assets\img\axeV2.png" class="axeSize gifTestComp" alt="">
+    <div id="mainContent">
+        <div id="gameVisual">
+            <div id="comp" class="flexWhite">
+                <span>Ordinateur</span>
+            </div>
+            <div id="player" class="flexWhite">
+                <span id="playerName">Joueur</span>
+            </div>
+            <div class="compModel">
+            </div>
+            <div class="playerModel">
+            </div>
+            <div id="compPickrate">
+                <div class="pickBox">
+                    <span>Epée</span>
+                    <span>Lance</span>
+                    <span>Hache</span>
+                </div>
+                <div class="pickBox amount">
+                    <p id="compSwordPick">0</p>
+                    <p id="compLancePick">0</p>
+                    <p id="compAxePick">0</p>
+                </div>
+            </div>
+            <div id="playerPickrate">
+                <div class="pickBox">
+                    <span>Epée</span>
+                    <span>Lance</span>
+                    <span>Hache</span>
+                </div>
+                <div class="pickBox amount">
+                    <p id="playerSwordPick">0</p>
+                    <p id="playerLancePick">0</p>
+                    <p id="playerAxePick">0</p>
+                </div>
+            </div>
+            <div id="compWeapon" class="flexWhite">
+                <p>Lance</p>
+            </div>
+            <div id="playerWeapon" class="flexWhite">
+                <p>Lance</p>
+            </div>
+            <div id="compLife">
+                <div class="flexWhite">
+                    <p id="compLifeAmount">30</p>
+                    <div id="compBarOuter">
+                        <div></div>
+                    </div>
+                </div>
+            </div>
+            <div id="playerLife">
+                <div class="flexWhite">
+                    <p id="playerLifeAmount">30</p>
+                    <div id="playerBarOuter">
+                        <div></div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="filler1"></div>
+            <div id="filler2"></div>
+            <div id="filler3"></div>
+            <div id="filler4"></div>
+            <div id="filler5"></div>
+            <div id="filler6"></div>
         </div>
-        <div class="box2">
-            <img src="public\assets\img\axeAnimation.webp" class="axeSize gifTestPlayer" alt="">
+        <div id="gameData">
+            <h2>Choisis ton arme</h2>
+            <div>
+                <button id="sword">Epée</button>
+                <button id="lance">Lance</button>
+                <button id="axe">Hache</button>
+            </div>
+            <p id="result"></p>
         </div>
     </div>
-
-    <div class="test">
-        <div class="box1">
-            <img src="public\assets\img\lanceV2.png" class="lanceSize gifTestComp" alt="">
-        </div>
-        <div class="box2">
-            <img src="public\assets\img\lanceAnimation.webp" class="lanceSize" class="sizeTest gifTestPlayer" alt="">
-        </div>
-    </div>
-
-    <div class="test">
-        <div class="box1">
-            <img src="public\assets\img\swordV2.png" class="swordSize gifTestComp" alt="">
-        </div>
-        <div class="box2">
-            <img src="public\assets\img\swordAnimation.webp" class="swordSize" class="sizeTest gifTestPlayer" alt="">
-        </div>
-    </div>
-
-
     <script src="public\assets\js\script.js"></script>
 </body>
+
 </html>

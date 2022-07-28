@@ -1,23 +1,292 @@
-.test {
-    width: 70%;
-    margin: auto;
-    display: flex;
-    justify-content: center;
-    background-color: grey;
+/*----- MISE EN PLACE DE LA PAGE -----*/
+
+@font-face {
+    font-family: FE gba;
+    src: url(../font/gba-fe-dialogue/gba-fe-dialogue.ttf);
 }
 
-.gifTestComp {
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #191919;
+    font-family: FE gba;
+    font-size: 1.3rem;
+    color: white;
+}
+
+#mainContent {
+    display: grid;
+    grid-template-columns: 20% 60% 20%  ;
+    grid-template-rows: 70vh 30vh ;
+}
+
+
+/*----- MISE EN PLACE DE l'ECRAN VISUEL -----*/
+
+#gameVisual {
+    grid-column: 2 / 3;
+    grid-row:  1 / 2;
+    background-image: url(../img/gameBG.png);
+    background-size: 100% 100%;
+    display: grid;
+    grid-template-columns: 18% 5% 27% 27% 5% 18%;
+    grid-template-rows: 3vh 8.5vh 14.5vh 22vh 4.5vh 8vh 9.5vh;
+    grid-gap: 1px;
+    grid-template-areas: 
+    "empty1 empty1 empty1 empty1 empty1 empty1"
+    "comp comp empty2 empty2 player player"
+    "empty3 empty3 empty3 empty3 empty3 empty3"
+    "empty4 empty4 compModel playerModel empty5 empty5"
+    "compPickrate empty6 empty6 empty6 empty6 playerPickrate"
+    "compPickrate compWeapon compWeapon playerWeapon playerWeapon playerPickrate"
+    "compLife compLife compLife playerLife playerLife playerLife"
+    ;
+}
+
+#filler1 {
+    grid-area: empty1;
+}
+
+#filler2 {
+    grid-area: empty2;
+}
+
+#filler3 {
+    grid-area: empty3;
+}
+
+#filler4 {
+    grid-area: empty4;
+}
+
+#filler5 {
+    grid-area: empty5;
+}
+
+#filler3 {
+    grid-area: empty6;
+}
+
+.flexWhite {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#comp {
+    grid-area: comp;
+    background-color: #9F0F10;
+    border-style: solid;
+    border-width: 2px 2px 2px 0px;
+    border-color: #CDC797;
+}
+
+#player {
+    grid-area: player;
+    background-color: #0E49A9;
+    border-style: solid;
+    border-width: 2px 0px 2px 2px;
+    border-color: #CDC797;
+}
+
+.compModel {
+    grid-area: compModel;
+    background-image: url(../img/lanceV2.png);
+    background-size: 100% 100%;
     transform: scaleX(-1);
 }
 
-.axeSize {
-    height: 200px;
+.playerModel {
+    grid-area: playerModel;
+    background-image: url(../img/lanceV2.png);
+    background-size: 100% 100%;
 }
 
-.swordSize {
-    height: 212px;
+#compPickrate {
+    grid-area: compPickrate;
+    background-color: #9F0F10;
+    border-style: solid;
+    border-width: 2px 2px 2px 0px;
+    border-color: #CDC797;
+    display: flex;
+    padding: 0 5%;
 }
 
-.lanceSize {
-    height: 238px;
+#playerPickrate {
+    grid-area: playerPickrate;
+    background-color: #0E49A9;
+    border-style: solid;
+    border-width: 2px 0px 2px 2px;
+    border-color: #CDC797;
+    display: flex;
+    padding: 0 5%;
+}
+
+.pickBox {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    color: white;
+}
+
+.amount {
+    flex-grow: 3;
+    text-align: end;
+}
+
+#compWeapon {
+    grid-area: compWeapon;
+    background-color: #CDC797;
+    border: 2px solid black;
+    border-radius: 0 10px 10px 0;
+}
+
+#playerWeapon {
+    grid-area: playerWeapon;
+    background-color: #CDC797;
+    border: 2px solid black;
+    border-radius: 10px 0 0 10px;
+}
+
+#compLife > div, #playerLife > div {
+    height: 100%;
+    justify-content: space-around;
+}
+
+#compLife {
+    grid-area: compLife;
+    background-color: #9F0F10;
+    border-style: solid;
+    border-width: 2px 5px 2px 2px;
+    border-color: #CDC797;
+}
+
+#compBarOuter {
+    width: 70%;
+    height: 30%;
+    background-color: #1C9A14;
+    border: 3px solid #0D5815;
+}
+
+#compBarOuter div {
+    width: 100%;
+    height: 100%;
+    background-color: #B7FFA6;
+}
+
+#playerLife {
+    grid-area: playerLife;
+    background-color: #0E49A9;
+    border-style: solid;
+    border-width: 2px 2px 2px 5px;
+    border-color: #CDC797;
+}
+
+#playerBarOuter {
+    width: 70%;
+    height: 30%;
+    background-color: #1C9A14;
+    border: 3px solid #0D5815;
+}
+
+#playerBarOuter div {
+    width: 100%;
+    height: 100%;
+    background-color: #B7FFA6;
+}
+
+
+/*----- MISE EN PLACE DE l'INTERFACE -----*/
+
+#gameData {
+    grid-column: 1 / 4;
+    grid-row: 2 / 3;
+}
+
+h2 {
+    text-align: center;
+    margin: 3%;
+}
+
+#gameData div {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#result {
+    margin-top: 3%;
+    text-align: center;
+}
+
+/*----- ANIMATIONS DES LIFE BARS -----*/
+
+.firstLoss {
+    animation: firstLoss 1.5s linear forwards;
+}
+
+@keyframes firstLoss {
+    0% {width: 100%;}
+    100% {width: 66%;}
+}
+
+.secondLoss {
+    animation: secondLoss 1.5s linear forwards;
+}
+
+@keyframes secondLoss {
+    0% {width: 66%;}
+    100% {width: 33%;}
+}
+
+.lastLoss {
+    animation: lastLoss 1.5s linear forwards;
+}
+
+@keyframes lastLoss {
+    0% {width: 33%;}
+    100% {width: 0%;}
+}
+
+/*----- ANIMATIONS DES PERSONNAGES ----*/
+
+.sword {
+    background-image: url(../img/swordV2.png);
+}
+
+.lance {
+    background-image: url(../img/lanceV2.png);
+}
+
+.axe {
+    background-image: url(../img/axeV2.png);
+}
+
+.swordWin {
+    animation: swordWin 4.5s linear forwards;
+}
+
+@keyframes swordWin {
+    0% {background-image: url(../img/swordAnimation.webp);}
+    100% {background-image: url(../img/swordV2.png);}
+}
+
+.lanceWin {
+    animation: lanceWin 4.5s linear forwards;
+}
+
+@keyframes lanceWin {
+    0% {background-image: url(../img/lanceAnimation.webp);}
+    100% {background-image: url(../img/lanceV2.png);}
+}
+
+.axeWin {
+    animation: axeWin 4.5s linear forwards;
+}
+
+@keyframes axeWin {
+    0% {background-image: url(../img/axeAnimation.webp);}
+    100% {background-image: url(../img/axeV2.png);}
 }
