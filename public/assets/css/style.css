@@ -31,6 +31,7 @@ body {
     grid-row:  1 / 2;
     background-image: url(../img/gameBG.png);
     background-size: 100% 100%;
+    overflow: hidden;
     display: grid;
     grid-template-columns: 18% 5% 27% 27% 5% 18%;
     grid-template-rows: 3vh 8.5vh 14.5vh 22vh 4.5vh 8vh 9.5vh;
