@@ -18,13 +18,15 @@
             <div id="player" class="flexWhite">
                 <span id="playerName">Joueur</span>
             </div>
+            <p id="result"></p>
+            <div id="explanations"></div>
             <div class="compModel">
             </div>
             <div class="playerModel">
             </div>
             <div id="compPickrate">
                 <div class="pickBox">
-                    <span>Epee</span>
+                    <span>Epée</span>
                     <span>Lance</span>
                     <span>Hache</span>
                 </div>
@@ -36,7 +38,7 @@
             </div>
             <div id="playerPickrate">
                 <div class="pickBox">
-                    <span>Epee</span>
+                    <span>Epée</span>
                     <span>Lance</span>
                     <span>Hache</span>
                 </div>
@@ -68,24 +70,29 @@
                     </div>
                 </div>
             </div>
-            <p id="result"></p>
 
             <div id="filler1"></div>
             <div id="filler2"></div>
             <div id="filler3"></div>
             <div id="filler4"></div>
-            <div id="filler5"></div>
             <div id="filler6"></div>
         </div>
         <div id="gameData">
             <div id="gameDataInner">
                 <h2>Choisis ton arme</h2>
+                <div></div>
                 <div>
-                    <button id="sword">Epee</button>
+                    <button id="sword">Epée</button>
                     <button id="lance">Lance</button>
                     <button id="axe">Hache</button>
                 </div>
             </div>
+            <div id="gameEnd">
+                <h2 id="gameResult"></h2>
+                <p>Vous avez gagné <span id="ratio"></span>% des manches</p>
+                <div></div>
+                <button id="replay">Rejouer?</button>
+            </div>        
         </div>
     </div>
 

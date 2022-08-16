@@ -14,7 +14,7 @@ function fight(weapon) {
     let compPick = Math.floor(Math.random() * 3);
     if (compPick == 0) {
         compSwordPick.textContent++;
-        compWeaponText.textContent = 'Epee';
+        compWeaponText.textContent = 'Epée';
     } else if (compPick == 1) {
         compLancePick.textContent++;
         compWeaponText.textContent = 'Lance';
@@ -25,9 +25,9 @@ function fight(weapon) {
 
     //INCREMENTATION DE LA PICKRATE DU JOUEUR
 
-    if (weapon == 'Epee') {
+    if (weapon == 'Epée') {
         playerSwordPick.textContent++;
-        playerWeaponText.textContent = 'Epee';
+        playerWeaponText.textContent = 'Epée';
     } else if (weapon == 'Lance') {
         playerLancePick.textContent++;
         playerWeaponText.textContent = 'Lance';
@@ -38,8 +38,8 @@ function fight(weapon) {
 
     //SCORE ET PV
 
-    if ((weapon == 'Epee' && compPick == 2) || (weapon == 'Lance' && compPick == 0) || (weapon == 'Hache' && compPick == 1)) {
-        result.textContent = 'Gagne';
+    if ((weapon == 'Epée' && compPick == 2) || (weapon == 'Lance' && compPick == 0) || (weapon == 'Hache' && compPick == 1)) {
+        result.textContent = 'Victoire';
         if (compBarInner.classList.contains('firstLoss')) {
             setTimeout(function () {
                 compBarInner.classList.toggle('firstLoss');
@@ -59,8 +59,8 @@ function fight(weapon) {
             }, 1100)
         }
         scorePlayer++;
-    } else if ((weapon == 'Epee' && compPick == 1) || (weapon == 'Lance' && compPick == 2) || (weapon == 'Hache' && compPick == 0)) {
-        result.textContent = 'Perdu';
+    } else if ((weapon == 'Epée' && compPick == 1) || (weapon == 'Lance' && compPick == 2) || (weapon == 'Hache' && compPick == 0)) {
+        result.textContent = 'Defaite';
         if (playerBarInner.classList.contains('firstLoss')) {
             setTimeout(function () {
                 playerBarInner.classList.toggle('firstLoss');
@@ -86,16 +86,16 @@ function fight(weapon) {
 
     //CALCUL DU SCORE
 
-    // if (scorePlayer == 0 && scoreComp == 0) {
+    if (scorePlayer == 0 && scoreComp == 0) {
 
-	// } else {
-	// 	ratio.innerHTML = Math.round(scorePlayer / (scorePlayer + scoreComp) * 100) + '%';
-	// }
+    } else {
+        ratio.innerHTML = Math.round(scorePlayer / (scorePlayer + scoreComp) * 100);
+    }
 
     //ANIMATION DES PERSONNAGES
 
-    if (result.textContent == 'Gagne') {
-        if (weapon == 'Epee') {
+    if (result.textContent == 'Victoire') {
+        if (weapon == 'Epée') {
             playerModel.className = 'playerModel';
             compModel.className = 'compModel';
             playerModel.classList.add('swordWin');
@@ -114,7 +114,7 @@ function fight(weapon) {
             compModel.classList.add('lance');
             setTimeout(function () { playerModel.className = 'playerModel axe'; }, 3500);
         }
-    } else if (result.textContent == 'Perdu') {
+    } else if (result.textContent == 'Defaite') {
         if (compPick == 0) {
             playerModel.className = 'playerModel';
             compModel.className = 'compModel';
@@ -135,7 +135,7 @@ function fight(weapon) {
             setTimeout(function () { compModel.className = 'compModel axe'; }, 3500);
         }
     } else {
-        if (weapon == 'Epee') {
+        if (weapon == 'Epée') {
             playerModel.className = 'playerModel';
             compModel.className = 'compModel';
             compModel.classList.add('swordWin');
@@ -165,14 +165,32 @@ function fight(weapon) {
         }
     }
 
-    // if (scorePlayer === 3) {
-    //     gameEnd.style.display = 'block';
-    // }
-    // if (scoreComp === 3) {
-    //     gameEnd.style.display = 'block';
-    // }
+    if (scorePlayer === 3) {
+        setTimeout(function () {
+            compModel.classList.add('defeated');
+            gameDataInner.style.display = 'none';
+            gameEnd.style.display = 'flex';
+            gameResult.textContent = 'Bravo';
+        }, 4500)
+    }
+    if (scoreComp === 3) {
+        setTimeout(function () {
+            playerModel.classList.add('defeated');
+            gameDataInner.style.display = 'none';
+            gameEnd.style.display = 'flex';
+            gameResult.textContent = 'Dommage';
+        }, 4500)
+    }
 }
 
+// RELOAD LA PAGE
+
+replay.addEventListener('click', () => {
+    window.location.reload();
+})
+
+
+// APPEL DES FONCTIONS
 
 sword.addEventListener('click', () => {
     fight(sword.textContent);
