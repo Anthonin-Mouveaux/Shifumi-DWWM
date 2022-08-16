@@ -1,0 +1,5 @@
+Joueur à gauche
+Boutons a finir avec icone
+Modal en début et fin de partie
+Gagné et perdue au milieu de l'écran (plus visible)
+Visuels hors interface

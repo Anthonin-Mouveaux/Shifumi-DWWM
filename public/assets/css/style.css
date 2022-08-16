@@ -27,6 +27,7 @@ body {
 /*----- MISE EN PLACE DE l'ECRAN VISUEL -----*/
 
 #gameVisual {
+    border: 2px solid white;
     grid-column: 2 / 3;
     grid-row:  1 / 2;
     background-image: url(../img/gameBG.png);
@@ -199,12 +200,29 @@ body {
     background-color: #B7FFA6;
 }
 
+#result {
+    margin-top: 3%;
+    text-align: center;
+    grid-area: empty3;
+    font-size: 3rem;
+}
+
 
 /*----- MISE EN PLACE DE l'INTERFACE -----*/
 
 #gameData {
     grid-column: 1 / 4;
     grid-row: 2 / 3;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+#gameDataInner {
+    width: 60%;
+    height: 80%;
+    background-color: #CDC797;
+    border: 2px solid white;
+    border-radius: 10px 10px 0 0;
 }
 
 h2 {
@@ -212,14 +230,24 @@ h2 {
     margin: 3%;
 }
 
-#gameData div {
+#gameDataInner div {
     display: flex;
     justify-content: space-evenly;
 }
 
-#result {
-    margin-top: 3%;
-    text-align: center;
+
+button {
+    padding: 1% 3%;
+    background-color: #0E49A9;
+    border: 2px solid black;
+    border-radius: 10px;
+    font-family: FE gba;
+    color: white;
+    font-size: 1.3rem;
+}
+
+button:hover {
+    cursor: pointer;
 }
 
 /*----- ANIMATIONS DES LIFE BARS -----*/
@@ -266,28 +294,13 @@ h2 {
 }
 
 .swordWin {
-    animation: swordWin 4.5s linear forwards;
-}
-
-@keyframes swordWin {
-    0% {background-image: url(../img/swordAnimation.webp);}
-    100% {background-image: url(../img/swordV2.png);}
+    background-image: url(../img/swordAnimation.webp);
 }
 
 .lanceWin {
-    animation: lanceWin 4.5s linear forwards;
-}
-
-@keyframes lanceWin {
-    0% {background-image: url(../img/lanceAnimation.webp);}
-    100% {background-image: url(../img/lanceV2.png);}
+    background-image: url(../img/lanceAnimation.webp);
 }
 
 .axeWin {
-    animation: axeWin 4.5s linear forwards;
-}
-
-@keyframes axeWin {
-    0% {background-image: url(../img/axeAnimation.webp);}
-    100% {background-image: url(../img/axeV2.png);}
+    background-image: url(../img/axeAnimation.webp);
 }
